@@ -2,3 +2,5 @@
 Developers:
 Eren Meral 211216057
 Beyzanur Karakaş 211216010
+
+Takım adı:HolidayApp
