@@ -1,6 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 import 'package:flutter/material.dart';
+import 'package:holiday_app/read_more.dart';
+import 'package:readmore/readmore.dart';
+
+import 'package:holiday_app/home_page.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
@@ -10,9 +13,14 @@ class Page2 extends StatelessWidget {
     return Scaffold(
       // appbar
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: IconButton(
+          onPressed: () {
+            HomePage();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
         ),
         actions: [
           Padding(
@@ -30,13 +38,10 @@ class Page2 extends StatelessWidget {
       body: Column(
         children: [
           Image.asset('manarola.jpg'),
-          // Container(
-          //   decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.circular(20)),
-          // ),
           SizedBox(
             height: 10,
           ),
+          // place name
           Row(
             children: [
               Padding(
@@ -47,6 +52,7 @@ class Page2 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 5),
+              //rating vs.
               Row(
                 children: [
                   Icon(
@@ -65,7 +71,48 @@ class Page2 extends StatelessWidget {
                 ],
               ),
             ],
-          )
+          ),
+          // Image.asset('mapview.png'), bunu koyunca uygulama patlıyor
+          //read more
+          Text(
+            'About Trip',
+            textAlign: TextAlign.start,
+            style: Theme.of(context).textTheme.headline5,
+          ),
+          Padding(
+            key: const Key('showMore'),
+            padding: const EdgeInsets.all(8.0),
+            child: ReadMore(),
+          ),
+          SizedBox(height: 80),
+          //sayfanın en altı
+          Row(
+            children: [
+              Icon(
+                Icons.attach_money,
+                size: 30,
+              ),
+              Text(
+                '770',
+                style: TextStyle(fontSize: 25),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 290.0),
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.orange,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20))),
+                    onPressed: () {},
+                    child: Text(
+                      'Book Now',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    )),
+              )
+            ],
+          ),
         ],
       ),
     );
