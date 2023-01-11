@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:holiday_app/page2.dart';
+import 'package:holiday_app/stack.dart';
 import 'home_page.dart';
 
 void main() {
@@ -16,6 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      routes: {
+        '/travel': (context) => Page2(),
+        '/': (context) => HomePage(),
+      },
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.transparent,
@@ -23,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      // home: StackScreen(),
     );
   }
 }

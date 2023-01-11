@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 import 'package:holiday_app/read_more.dart';
+import 'package:holiday_app/stack.dart';
 import 'package:readmore/readmore.dart';
 
 import 'package:holiday_app/home_page.dart';
@@ -15,7 +16,7 @@ class Page2 extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            HomePage();
+            Navigator.of(context).pushNamed('/');
           },
           icon: Icon(
             Icons.arrow_back,
@@ -73,18 +74,35 @@ class Page2 extends StatelessWidget {
             ],
           ),
           // Image.asset('mapview.png'), bunu koyunca uygulama patlıyor
+
+          Container(
+            width: double.infinity,
+            height: 100,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                    image: AssetImage("assets/mapview.png"),
+                    fit: BoxFit.cover)),
+          ),
+
           //read more
-          Text(
-            'About Trip',
-            textAlign: TextAlign.start,
-            style: Theme.of(context).textTheme.headline5,
+          Row(
+            children: [
+              Text(
+                'About Trip',
+                textAlign: TextAlign.start,
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ],
           ),
-          Padding(
-            key: const Key('showMore'),
-            padding: const EdgeInsets.all(8.0),
-            child: ReadMore(),
+          Container(
+            child: Padding(
+              key: const Key('showMore'),
+              padding: const EdgeInsets.all(8.0),
+              child: ReadMore(),
+            ),
           ),
-          SizedBox(height: 80),
+
           //sayfanın en altı
           Row(
             children: [

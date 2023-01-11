@@ -24,14 +24,21 @@ class Places extends StatelessWidget {
         padding: EdgeInsets.all(20),
         width: 200,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20), color: Colors.white),
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.white,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // place image
-            ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(placeImage)),
+            Container(
+              width: double.infinity,
+              height: 217,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      image: AssetImage(placeImage), fit: BoxFit.cover)),
+            ),
 
             // place name
             Padding(

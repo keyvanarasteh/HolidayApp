@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:holiday_app/page2.dart';
 import 'package:holiday_app/places.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,8 +17,14 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.blue[200],
       // appbar
       appBar: AppBar(
-        leading: Icon(Icons.menu),
-        actions: [Icon(Icons.menu)],
+        leading: Icon(Icons.menu), // sol üst
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/travel');
+              },
+              icon: Icon(Icons.chevron_right))
+        ], // sağ üst
       ),
       body: Column(
         children: [
@@ -51,7 +58,10 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(35),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(35),
+                  topRight: Radius.circular(35),
+                ),
                 color: Colors.white,
               ),
               child: ListView(
@@ -95,32 +105,35 @@ class HomePage extends StatelessWidget {
       ),
 
       // bottom navigation bar
-      bottomNavigationBar: BottomNavigationBar(items: [
+      bottomNavigationBar: BottomNavigationBar(elevation: 0, items: [
         BottomNavigationBarItem(
           icon: Icon(
             Icons.home,
+            color: Colors.orange,
+          ),
+          label: '', // label zorunlu
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.calendar_month,
             color: Colors.grey,
           ),
           label: '',
         ),
         BottomNavigationBarItem(
-            icon: Icon(
-              Icons.calendar_month,
-              color: Colors.grey,
-            ),
-            label: ''),
+          icon: Icon(
+            Icons.person,
+            color: Colors.grey,
+          ),
+          label: '',
+        ),
         BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              color: Colors.grey,
-            ),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings,
-              color: Colors.grey,
-            ),
-            label: ''),
+          icon: Icon(
+            Icons.settings,
+            color: Colors.grey,
+          ),
+          label: '',
+        ),
       ]),
     );
   }
