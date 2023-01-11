@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import, avoid_unnecessary_containers
 import 'package:flutter/material.dart';
 import 'package:holiday_app/read_more.dart';
-import 'package:holiday_app/stack.dart';
 import 'package:readmore/readmore.dart';
 
 import 'package:holiday_app/home_page.dart';
